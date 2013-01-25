@@ -1,0 +1,30 @@
+{
+    "name": "fp/phpunit-extensions",
+    "type": "lib",
+    "description": "Some phpunit extensions",
+    "keywords": ["phpunit", "stub"],
+    "homepage": "https://github.com/formapro/PhpunitExtensions",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kotlyar Maksim",
+            "email": "kotlyar.maksim@gmail.com"
+        },
+        {
+            "name": "Community",
+            "homepage": "https://github.com/formapro/PhpunitExtensions/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "suggest": {
+        "phpunit/phpunit": "If you want to use phpunit via composer",
+        "symfony/symfony": "If you want to use extensions for phpunit and symfony"
+    },
+    "autoload": {
+        "psr-0": {
+            "Fp": "src/"
+        }
+    }
+}
