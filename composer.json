@@ -20,7 +20,8 @@
     },
     "suggest": {
         "phpunit/phpunit": "If you want to use phpunit via composer",
-        "symfony/symfony": "If you want to use extensions for phpunit and symfony"
+        "symfony/symfony": "If you want to use extensions for phpunit and symfony",
+        "fp/fumocker": "If you want to mock function"
     },
     "autoload": {
         "psr-0": {
