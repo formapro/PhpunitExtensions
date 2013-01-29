@@ -1,7 +1,7 @@
 <?php
 namespace Fp\PhpunitExtension\Symfony;
 
-class FormTrait 
+class FormTrait
 {
     /**
      * @param mixed $form
@@ -60,6 +60,7 @@ class FormTrait
 
     /**
      * @param mixed $form
+     * @param string $expectedErrorMessage
      */
     public function assertFormNotValid($form, $expectedErrorMessage = 'ERROR:')
     {
@@ -77,5 +78,32 @@ class FormTrait
             $expectedErrorMessage,
             $form->getErrorsAsString()
         ));
+    }
+
+    /**
+     * @param mixed $form
+     * @param string $childName
+     */
+    public function assertFormChildValid($form, $childName)
+    {
+        //guard
+        $this->assertInstanceOfForm($form);
+        $this->assertFormHasChild($form, $childName);
+        
+        $this->assertFormValid($form->get($childName));
+    }
+
+    /**
+     * @param mixed $form
+     * @param string $childName
+     * @param string $expectedErrorMessage
+     */
+    public function assertFormChildNotValid($form, $childName, $expectedErrorMessage = 'ERROR:')
+    {
+        //guard
+        $this->assertInstanceOfForm($form);
+        $this->assertFormHasChild($form, $childName);
+
+        $this->assertFormNotValid($form->get($childName), $expectedErrorMessage);
     }
 }
