@@ -9,16 +9,6 @@ trait FumockerTrait
     private $fumocker;
 
     /**
-     * Implement these methods in your test case or use SetUpTrait extension
-     */
-    abstract public function setUpExtensions();
-
-    /**
-     * Implement these methods in your test case or use SetUpTrait extension
-     */
-    abstract public function tearDownExtensions();
-
-    /**
      * @return void
      */
     public function setUpFumocker()
