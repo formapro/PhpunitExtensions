@@ -1,8 +1,46 @@
 PhpunitExtensions
 =================
 
-StubTrait
----------
+Write attribute extension
+-------------------------
+
+It is simple extension which allows to access protected properties. It is like readAttribute shipped with phpunit.
+
+```php
+<?php
+
+class Foo
+{
+    protected $id;
+    
+    public function getId()
+    {
+        return $this->id;
+    }
+}
+
+class FooTest extends PHPUnit_Framework_TestCase
+{
+    use \Fp\PhpunitExtension\WriteAttributeTrait;
+
+    public function testReturnExpectedId()
+    {
+        $foo = new Foo;
+        $this->writeAttribute($foo, 'id', 10);
+
+        $this->assertEquals(10, $foo->getId());
+        
+        //or
+        
+        $this->writeIdAttribute($foo, 20);
+        
+        $this->assertEquals(20, $foo->getId());
+    }
+}
+```
+
+Stub extension
+--------------
 
 ```php
 <?php
@@ -39,8 +77,8 @@ As you can see the constructor is **overwritten**.
 You can define returned values or pass instance of `PHPUnit_Framework_MockObject_Stub`.
 There is an [issue](https://github.com/sebastianbergmann/phpunit/issues/550) at phpunit.
 
-FumockerTrait
--------------
+Fumocker extension
+------------------
 
 This extension could be used to mock function. For that you have to install [fp\fumocker](https://github.com/formapro/Fumocker) lib first.
 
